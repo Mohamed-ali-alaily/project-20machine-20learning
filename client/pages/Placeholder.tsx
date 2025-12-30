@@ -8,7 +8,11 @@ interface PlaceholderProps {
   icon?: React.ReactNode;
 }
 
-export default function Placeholder({ title, description, icon }: PlaceholderProps) {
+export default function Placeholder({
+  title,
+  description,
+  icon,
+}: PlaceholderProps) {
   return (
     <Layout>
       <section className="min-h-screen pt-20 pb-20">

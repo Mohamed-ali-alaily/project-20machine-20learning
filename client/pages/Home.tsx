@@ -66,9 +66,10 @@ export default function Home() {
 
             {/* Subheadline */}
             <p className="text-lg sm:text-xl text-foreground/70 max-w-2xl mx-auto">
-              A foundational platform for deploying advanced machine learning models.
-              Built for flexibility and ready for Streamlit integration to create
-              interactive user experiences based on your trained models.
+              A foundational platform for deploying advanced machine learning
+              models. Built for flexibility and ready for Streamlit integration
+              to create interactive user experiences based on your trained
+              models.
             </p>
 
             {/* CTA Buttons */}
@@ -92,7 +93,9 @@ export default function Home() {
                   <div className="text-2xl sm:text-3xl font-heading font-bold text-primary">
                     {stat.value}
                   </div>
-                  <p className="text-sm text-foreground/60 mt-1">{stat.label}</p>
+                  <p className="text-sm text-foreground/60 mt-1">
+                    {stat.label}
+                  </p>
                 </div>
               ))}
             </div>

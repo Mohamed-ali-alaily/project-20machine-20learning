@@ -36,9 +36,13 @@ export default function Footer() {
           <div className="lg:col-span-1">
             <Link to="/" className="flex items-center gap-2 mb-4">
               <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center">
-                <span className="font-heading font-bold text-white text-lg">P</span>
+                <span className="font-heading font-bold text-white text-lg">
+                  P
+                </span>
               </div>
-              <span className="font-heading font-bold text-foreground">PredictAI</span>
+              <span className="font-heading font-bold text-foreground">
+                PredictAI
+              </span>
             </Link>
             <p className="text-sm text-foreground/60">
               Customer satisfaction prediction powered by machine learning.
@@ -91,7 +95,8 @@ export default function Footer() {
             © {currentYear} PredictAI. All rights reserved.
           </p>
           <p className="text-sm text-foreground/60">
-            Engineered for <span className="text-primary font-semibold">precision</span> and{" "}
+            Engineered for{" "}
+            <span className="text-primary font-semibold">precision</span> and{" "}
             <span className="text-secondary font-semibold">insights</span>
           </p>
         </div>

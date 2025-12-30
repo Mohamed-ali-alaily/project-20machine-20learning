@@ -40,8 +40,8 @@ export default function Model() {
                   Model Overview
                 </h1>
                 <p className="text-foreground/70">
-                  This is where your customer satisfaction prediction model will be
-                  hosted and showcased.
+                  This is where your customer satisfaction prediction model will
+                  be hosted and showcased.
                 </p>
               </div>
 
@@ -62,8 +62,8 @@ export default function Model() {
 
               <div className="pt-4">
                 <p className="text-sm text-foreground/60 mb-4">
-                  Continue prompting to customize and fill in the content for this
-                  page based on your specific model and requirements.
+                  Continue prompting to customize and fill in the content for
+                  this page based on your specific model and requirements.
                 </p>
                 <button className="px-6 py-2 rounded-lg bg-primary text-primary-foreground font-medium hover:bg-primary/90 transition-colors">
                   Configure Model

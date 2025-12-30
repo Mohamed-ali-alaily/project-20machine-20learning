@@ -18,7 +18,9 @@ export default function NavBar() {
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 group">
             <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center">
-              <span className="font-heading font-bold text-white text-lg">P</span>
+              <span className="font-heading font-bold text-white text-lg">
+                P
+              </span>
             </div>
             <span className="font-heading font-bold text-lg text-foreground hidden sm:inline">
               PredictAI

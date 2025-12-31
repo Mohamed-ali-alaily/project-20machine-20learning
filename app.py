@@ -2,9 +2,12 @@ import streamlit as st
 import pandas as pd
 import pickle
 
-# Load trained model
+# Load model and preprocessor
 with open("customer_satisfaction_model.pkl", "rb") as f:
     model = pickle.load(f)
+
+with open("customer_satisfaction_preprocessor.pkl", "rb") as f:
+    preprocessor = pickle.load(f)
 
 st.title("Customer Satisfaction Prediction")
 st.write("Web application for predicting customer satisfaction")
@@ -22,7 +25,7 @@ seat_comfort = st.slider("Seat Comfort", 0, 5, 3)
 departure_delay = st.number_input("Departure Delay in Minutes", min_value=0)
 arrival_delay = st.number_input("Arrival Delay in Minutes", min_value=0)
 
-# Input dataframe (لازم نفس أسماء الأعمدة)
+# Create input dataframe (must match column names)
 input_df = pd.DataFrame({
     "Gender": [gender],
     "Customer Type": [customer_type],
@@ -38,6 +41,13 @@ input_df = pd.DataFrame({
 })
 
 if st.button("Predict"):
-    pred = model.predict(input_df)[0]
-    result = "Satisfied" if pred == 1 else "Neutral or Dissatisfied"
+    # Transform input data using preprocessor
+    input_processed = preprocessor.transform(input_df)
+    
+    # Make prediction
+    prediction = model.predict(input_processed)[0]
+
+    # Display result
+    result = "Satisfied" if prediction == 1 else "Neutral or Dissatisfied"
     st.success(f"Prediction: {result}")
+

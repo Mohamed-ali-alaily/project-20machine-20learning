@@ -1,18 +1,15 @@
 import streamlit as st
 import pandas as pd
-import pickle
+import joblib  # استبدال pickle بـ joblib
 
-# Load model and preprocessor
-with open("customer_satisfaction_model.pkl", "rb") as f:
-    model = pickle.load(f)
-
-with open("customer_satisfaction_preprocessor.pkl", "rb") as f:
-    preprocessor = pickle.load(f)
+# تحميل الموديل والـ preprocessor باستخدام joblib
+model = joblib.load("customer_satisfaction_model.joblib")
+preprocessor = joblib.load("customer_satisfaction_preprocessor.joblib")
 
 st.title("Customer Satisfaction Prediction")
 st.write("Web application for predicting customer satisfaction")
 
-# Inputs
+# المدخلات
 gender = st.selectbox("Gender", ["Male", "Female"])
 customer_type = st.selectbox("Customer Type", ["Loyal Customer", "disloyal Customer"])
 age = st.slider("Age", 7, 85, 30)
@@ -25,7 +22,7 @@ seat_comfort = st.slider("Seat Comfort", 0, 5, 3)
 departure_delay = st.number_input("Departure Delay in Minutes", min_value=0)
 arrival_delay = st.number_input("Arrival Delay in Minutes", min_value=0)
 
-# Create input dataframe (must match column names)
+# إنشاء DataFrame للمدخلات
 input_df = pd.DataFrame({
     "Gender": [gender],
     "Customer Type": [customer_type],
@@ -41,13 +38,10 @@ input_df = pd.DataFrame({
 })
 
 if st.button("Predict"):
-    # Transform input data using preprocessor
+    # استخدام الـ preprocessor لتحويل المدخلات
     input_processed = preprocessor.transform(input_df)
     
-    # Make prediction
+    # التنبؤ باستخدام الموديل
     prediction = model.predict(input_processed)[0]
-
-    # Display result
     result = "Satisfied" if prediction == 1 else "Neutral or Dissatisfied"
     st.success(f"Prediction: {result}")
-
